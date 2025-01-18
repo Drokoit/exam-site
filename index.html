@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Логотип" class="logo-img"></a>
+        </div>
+        <div class="search-container">
+            <select id="searchSelect" style="display: none;">
+                <!-- Опции будут заполняться JavaScript -->
+            </select>
+            <input type="text" id="searchInput" placeholder="Поиск...">
+            <div id="autocompleteList"></div>
+            <button class="search-btn">Найти</button>
+            
+        </div>                       
+        <div class="icons">
+            <a href="cart.html"><img src="images/cart.png" alt="Корзина"></a>
+            <a href="profile.html"><img src="images/LK.png" alt="Личный кабинет"></a>
+        </div>
+    </header>
+    <div class="notifications" id="notifications"></div>
+    <main>
+        <div class="sidebar">
+            <form id="filterForm">
+                <label for="category">Категория</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="category1"> Категория 1</label>
+                    <label><input type="checkbox" id="category2"> Категория 2</label>
+                    <label><input type="checkbox" id="category3"> Категория 3</label>
+                    <label><input type="checkbox" id="category4"> Категория 4</label>
+                    <label><input type="checkbox" id="category5"> Категория 5</label>
+                </div>
+                <label for="price">Стоимость</label>
+                <input type="number" id="minPrice" placeholder="От">
+                <input type="number" id="maxPrice" placeholder="До">
+                <label for="discount">
+                    <input type="radio" id="discount" name="discount"> Товары со скидкой
+                </label>
+                <button type="submit">Применить</button>
+            </form>
+        </div>
+        <div class="catalog">
+            <h2>Каталог</h2>
+            <select id="sortSelect">
+                <option value="priceHigh">По убыванию цены</option>
+                <option value="priceLow">По возрастанию цены</option>
+                <option value="ratingHigh">По убыванию рейтинга</option>
+                <option value="ratingLow">По возрастанию рейтинга</option>
+            </select>
+            <div class="product-grid" id="productGrid">
+            </div>
+            <button id="loadMore">Загрузить ещё</button>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 ExamShop. Все права защищены.</p>
+            <p>Контактные данные: 8 (800) 555-35-35 | exam@shop.ru</p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
