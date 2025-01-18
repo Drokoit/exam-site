@@ -64,7 +64,7 @@ function selectSuggestion(element) {
 
     // Вводим название товара в поле поиска
     searchInput.value = element.getAttribute('data-name');
-    searchInput.dispatchEvent(new Event('input')); // Триггерим событие input для обновления списка автодополнения
+    searchInput.dispatchEvent(new Event('input')); 
 }
 
 // Обработчик ввода пользователя

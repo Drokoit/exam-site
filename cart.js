@@ -160,6 +160,28 @@ function checkout(event) {
 // Добавляем обработчик для кнопки "Отправить заказ"
 checkoutButton.addEventListener("click", checkout);
 
+function resetOrder() {
+    // Очистка корзины
+    localStorage.removeItem('cart');
+
+    // Очистка формы
+    document.getElementById('order-form').reset();
+    
+    // Обновление UI
+    document.querySelector('.cart-items').innerHTML = '<p>Корзина пуста. Перейдите в каталог, чтобы добавить товары.</p>';
+    
+    // Обновление общей суммы
+    updateTotalPrice();
+    
+    console.log('Заказ сброшен успешно');
+}
+
+document.querySelector('#reset-order-button').addEventListener('click', function(e) {
+    e.preventDefault(); // Предотвращаем стандартное поведение ссылки
+    resetOrder();
+});
+
+
 // Обработчик изменений на форме (для обновления стоимости доставки)
 document.getElementById('delivery-date').addEventListener('change', updateTotalPrice);
 document.getElementById('time-slot').addEventListener('change', updateTotalPrice);
