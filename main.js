@@ -3,11 +3,30 @@ const apiKey = "43fc4171-9feb-433b-a328-477a7efd24c3";
 const productGrid = document.getElementById("productGrid");
 let products = [];  // Массив для хранения всех полученных товаров
 
+// Функция для загрузки всех товаров при загрузке страницы
+function loadAllProducts() {
+    fetch(apiUrl + "?api_key=" + apiKey)
+        .then(response => response.json())
+        .then(data => {
+            products = data;
+            displayAllProducts();
+        })
+        .catch(error => console.error('Ошибка:', error));
+}
+
+// Функция для отображения всех товаров
+function displayAllProducts() {
+    const productGrid = document.getElementById("productGrid");
+    productGrid.innerHTML = '';
+    products.forEach(product => {
+        const card = createProductCard(product);
+        productGrid.appendChild(card);
+    });
+}
+
 // Функция для обработки ввода пользователя
 function handleUserInput(event) {
-    const searchInput = document.getElementById('searchInput');
     const autocompleteList = document.getElementById('autocompleteList');
-    const select = document.getElementById('searchSelect');
 
     // Очищаем список автодополнения
     autocompleteList.innerHTML = '';
@@ -283,3 +302,4 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTotalPrice();
 });
 
+loadAllProducts();
