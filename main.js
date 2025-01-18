@@ -1,4 +1,4 @@
-const apiUrl = "http://lab8-api.std-900.ist.mospolytech.ru/exam-2024-1/api/goods";
+const apiUrl = "https://edu.std-900.ist.mospolytech.ru/exam-2024-1/api/goods";
 const apiKey = "43fc4171-9feb-433b-a328-477a7efd24c3";
 const productGrid = document.getElementById("productGrid");
 let products = [];  // Массив для хранения всех полученных товаров
